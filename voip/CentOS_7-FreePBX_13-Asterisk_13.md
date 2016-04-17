@@ -225,7 +225,22 @@ cd freepbx
 ./start_asterisk start
 ./install -n
 ```
+##### Post-Install Start-up Script
+ref: [Example systemd startup script](http://wiki.freepbx.org/display/FOP/Example+systemd+startup+script+for+FreePBX)
+```
+[Unit]
+Description=FreePBX VoIP Server
+After=mariadb.service
 
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/sbin/fwconsole start
+ExecStop=/usr/sbin/fwconsole stop
+
+[Install]
+WantedBy=multi-user.target
+```
 
 ### MISC
 ##### htop
