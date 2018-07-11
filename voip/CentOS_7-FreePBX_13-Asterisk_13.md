@@ -242,6 +242,30 @@ ExecStop=/usr/sbin/fwconsole stop
 WantedBy=multi-user.target
 ```
 
+##### Media Conversion Library
+WAV / OGG (OGA) (probably already installed)
+`# yum install sox`
+
+MP3
+```
+cd /opt
+wget http://downloads.sourceforge.net/project/lame/lame/3.99/lame-3.99.5.tar.gz
+tar zxvf lame-3.99.5.tar.gz
+cd lame-3.99.5
+./configure
+make
+make install
+```
+
+MP3 Voicemails:
+http://www.g2support.com/how-to-enable-mp3-voicemails-in-freepbx/
+
+MP4 (ffmpeg)
+https://www.webfoobar.com/node/17
+Note: EPEL repo probably already installed, but disabled, install dependency:
+`yum -y --enablerepo=epel install libdc1394-devel`
+
+
 ### MISC
 ##### htop
 `$ yum install -y htop`
